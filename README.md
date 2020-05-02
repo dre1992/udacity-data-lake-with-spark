@@ -17,7 +17,18 @@ This command will install the required libraries in the libs directory (Pyspark 
 make build
 ```
 This will built the dist directory copying the main.py and creating zip files for all the 3rd party libraries and jobs
-The libraries can be normally imported as we use the sys.path.insert(0, 'some.zip') to include these dependencies
+The libraries can be normally imported as we use the sys.path.insert(0, 'some.zip') to include these dependencies.
+
+The dist directory will contain:
+```
+  .
+├── src
+├── dist                  
+│   ├── main.py          # runnable script provided to spark-submit
+│   ├── libs.zip         # 3rd party libraries
+│   └── jobs.zip         # Jobs module
+└── ...
+```
 ```
 scp -i  spark-udacity.pem -r project/data-lake-with-spark/config hadoop@ec2-xx-xx-xxx-xxx.us-xx-xx.compute.amazonaws.com:~/
 scp -i  spark-udacity.pem -r project/data-lake-with-spark/dist hadoop@ec2-xx-xx-xxx-xxx.us-xx-xx.compute.amazonaws.com:~/
