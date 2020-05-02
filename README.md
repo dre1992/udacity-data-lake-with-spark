@@ -73,13 +73,12 @@ For the initial load of the data we read from udacity's s3 bucket that contains 
 ## TRANSFORM
 The songs and logs jobs accordingly transform the data to create the necessary tables, drop duplicates where needed and join tables to create 
 the facts table songplays.
+
+## LOAD 
 Each of the five tables are written to parquet files in a separate analytics directory on S3. 
 Each table has its own folder within the directory. 
 Songs table files are partitioned by year and then artist. 
 Time table files are partitioned by year and month. 
 Songplays table files are partitioned by year and month.
 
-## LOAD 
-* Since the type of queries that will run against our tables is not known, no hypothesis can be done for the distribution and sort keys
-* Other IaC tools can be used to achieve setting the infrastructure required. One personal favorite is terraform which enables end to end handling of all aws resources
 
