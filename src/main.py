@@ -33,6 +33,9 @@ def create_spark_session():
 
     :return: None
     """
+
+    # We configure spark to download the necessary hadoop-aws dependencies
+    # and se the fileoutputcommitter to 2 for better handling of writing data to s3
     spark = SparkSession \
         .builder \
         .config("spark.jars.packages",
